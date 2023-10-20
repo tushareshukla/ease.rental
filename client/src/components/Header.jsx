@@ -23,7 +23,9 @@ export default function Header() {
           </h1>
         </Link>
         <div className="hidden sm:flex items-center">
-          <div className="flex flex-center"> {/* Center the search bar */}
+          <div className="flex flex-center mr-auto">
+            {" "}
+            {/* Center the search bar */}
             <form className="bg-gray-100 p-3 rounded-lg flex items-center">
               <input
                 type="text"
