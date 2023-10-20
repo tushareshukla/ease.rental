@@ -41,7 +41,7 @@ export default function SignUp() {
 
   return (
     <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center  font-semibold my-7">SignUp</h1>
+      <h1 className="text-3xl text-center  font-semibold my-7">SIGN UP</h1>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <input
           type="text"
@@ -54,18 +54,18 @@ export default function SignUp() {
           type="email"
           placeholder="Email: johndoe@email.com"
           className="border p-3 rounded-lg"
-          id="username"
+          id="email"
           onChange={handleChange}
         />
         <input
           type="password"
           placeholder="password"
           className="border p-3 rounded-lg"
-          id="username"
+          id="password"
           onChange={handleChange}
         />
         <button
-          dsabled={loading}
+          disabled={loading}
           className="bg-gray-800 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80"
         >
           {loading ? "loading.." : "CREATE ACCOUNT"}
