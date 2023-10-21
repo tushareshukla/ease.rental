@@ -1,8 +1,10 @@
 import { FaSearch, FaBars, FaTimes } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { useState } from "react";
+import { useSelector } from "react-redux";
 
 export default function Header() {
+  const { currentUser } = useSelector((state) => state.user);
   const [showSidebar, setShowSidebar] = useState(false);
 
   const toggleSidebar = () => {
@@ -23,7 +25,6 @@ export default function Header() {
           </h1>
         </Link>
         <div className="sm:hidden flex items-center">
-         
           <form className="bg-gray-100 p-3 rounded-lg flex items-center">
             <input
               type="text"
@@ -48,20 +49,32 @@ export default function Header() {
           </form>
           <ul className="flex gap-4">
             <Link to="/">
-              <li className="text-white hover-text-red-600 ml-4 hover:text-red-600">Home</li>
+              <li className="text-white hover-text-red-600 ml-4 hover:text-red-600">
+                Home
+              </li>
             </Link>
             <Link to="/about">
-              <li className="text-white hover-text-red-600 hover:text-red-600">About</li>
+              <li className="text-white hover-text-red-600 hover:text-red-600">
+                About
+              </li>
             </Link>
             <a
               href="https://www.ease.rentals"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li className="text-white hover-text-red-600  hover:text-red-600">Manage Rental</li>
+              <li className="text-white hover-text-red-600  hover:text-red-600">
+                Manage Rental
+              </li>
             </a>
-            <Link to="/sign-in">
-              <li className="text-white hover-text-red-600  hover:text-red-600">Sign in</li>
+            <Link to="/profile">
+              {currentUser ? (
+                <img className="rounded-full h-7 w-7 object-cover" src={currentUser.avatar} alt="profile" />
+              ) : (
+                <li className="text-white hover-text-red-600  hover:text-red-600">
+                  Sign in
+                </li>
+              )}
             </Link>
           </ul>
         </div>
