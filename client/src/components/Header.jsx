@@ -33,7 +33,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <span className="text-white hover:text-red-600">Sign in</span>
+              <span className="text-white hover:text-red-500">Sign in</span>
             )}
           </Link>
           <form className="bg-gray-100 p-3 rounded-lg flex items-center ml-4">
@@ -42,7 +42,7 @@ export default function Header() {
               placeholder="Search..."
               className="bg-transparent focus:outline-none w-24 sm:w-64"
             />
-            <FaSearch className="text-gray-600" />
+            <FaSearch className="text-gray-700" />
           </form>
           <FaBars
             className="text-white text-2xl cursor-pointer ml-4"
@@ -60,17 +60,17 @@ export default function Header() {
           </form>
           <ul className="flex gap-4">
             <Link to="/">
-              <li className="text-white hover:text-red-600 ml-4">Home</li>
+              <li className="text-white hover:text-red-500 ml-4">Home</li>
             </Link>
             <Link to="/about">
-              <li className="text-white hover:text-red-600">About</li>
+              <li className="text-white hover:text-red-500">About</li>
             </Link>
             <a
               href="https://www.ease.rentals"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li className="text-white hover:text-red-600">Manage Rental</li>
+              <li className="text-white hover:text-red-500">Manage Rents</li>
             </a>
             {currentUser ? (
               <Link to="/profile">
@@ -82,7 +82,7 @@ export default function Header() {
               </Link>
             ) : (
               <Link to="/sign-in">
-                <li className="text-white hover:text-red-600">Sign in</li>
+                <li className="text-white hover:text-red-500">Sign in</li>
               </Link>
             )}
           </ul>
@@ -111,7 +111,7 @@ export default function Header() {
                   target="_blank"
                   rel="noopener noreferrer"
                 >
-                  Manage Rental
+                  Manage Rents
                 </a>
               </li>
               {currentUser ? (
