@@ -6,6 +6,7 @@ import {
   uploadBytesResumable,
   getDownloadURL,
 } from "firebase/storage";
+import { set } from "mongoose";
 export default function AddProperty() {
   const [uploading, setUploading] = useState(false);
   const [imageUploadError, setImageUploadError] = useState(false);
@@ -17,10 +18,11 @@ export default function AddProperty() {
   const [formData, setFormData] = useState({
     imageUrls: [],
   });
+  console.log(formData);
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
-        setUploading(true);
-        setImageUploadError(false);
+      setUploading(true);
+      setImageUploadError(false);
       const promises = [];
       for (let i = 0; i < files.length; i++) {
         promises.push(storeImage(files[i]));
@@ -44,7 +46,7 @@ export default function AddProperty() {
     }
   };
   const storeImage = async (file) => {
-    return new Promise((resole, reject) => {
+    return new Promise((resolve, reject) => {
       const storage = getStorage(app);
       const fileName = new Date().getTime() + file.name;
       const storageRef = ref(storage, fileName);
@@ -53,7 +55,7 @@ export default function AddProperty() {
         "state_changed",
         (snapshot) => {
           const progress =
-            (snapshot.bytesTransfered / snapshot.totalBytes) * 100;
+            (snapshot.bytesTransferred / snapshot.totalBytes) * 100;
           console.log(`upload is ${progress}% done`);
         },
         (error) => {
@@ -61,7 +63,7 @@ export default function AddProperty() {
         },
         () => {
           getDownloadURL(uploadTask.snapshot.ref).then((downloadURL) => {
-            resolvePath(downloadURL);
+            resolve(downloadURL);
           });
         }
       );
@@ -263,7 +265,7 @@ export default function AddProperty() {
           </p>
           <div className="flex gap-4">
             <input
-              onChange={(e) => setFiles(e.target)}
+              onChange={(e) => setFiles(e.target.files)}
               className="p-3 border border-gray-300 rounded w-full"
               type="file"
               id="images1"
@@ -276,7 +278,7 @@ export default function AddProperty() {
               onClick={handleImageSubmit}
               className="p-3 text-green-800 border border-green-800 rounded uppercase hover:shadow-lg disabled:opacity-70"
             >
-              {uploading ? "Uplloading..." : "Upload"}
+              {uploading ? "Uploading..." : "Upload"}
             </button>
           </div>
           <p className="text-red-700 text-sm">
@@ -284,11 +286,7 @@ export default function AddProperty() {
           </p>
           {formData.imageUrls.length > 0 &&
             formData.imageUrls.map((url, index) => (
-              <div
-                className="flex justify-between p-3 border item-center"
-                key={url}
-              >
-                {" "}
+              <div className="flex justify-between p-3 border item-center">
                 <img
                   src={url}
                   alt="listing image"
@@ -297,7 +295,7 @@ export default function AddProperty() {
                 <button
                   type="button"
                   onClick={() => handleRemoveImage(index)}
-                  className="p-3 text-red-700rounded-lg uppercase hover:opacity-65"
+                  className="p-3 text-red-700 rounded-lg uppercase hover:opacity-65"
                 >
                   Delete
                 </button>
