@@ -92,13 +92,13 @@ export default function Header() {
         <div className="bg-gray-800 text-white w-48 fixed top-0 right-0 h-full transition-transform transform translate-x-0 shadow-md">
           <div className="p-6 space-y-4">
             <div className="flex justify-between items-center">
-              <h2>Menu</h2>
+              <h2></h2>
               <FaTimes
                 className="text-white text-xl cursor-pointer"
                 onClick={closeSidebar}
               />
             </div>
-            <ul>
+            <ul className="text-xl">
               <li>
                 <Link to="/">Home</Link>
               </li>
