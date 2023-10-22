@@ -36,7 +36,7 @@ export default function AddProperty() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
-  console.log(formData);
+
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
       setUploading(true);
@@ -63,6 +63,7 @@ export default function AddProperty() {
       setUploading(false);
     }
   };
+
   const storeImage = async (file) => {
     return new Promise((resolve, reject) => {
       const storage = getStorage(app);
@@ -87,6 +88,7 @@ export default function AddProperty() {
       );
     });
   };
+
   const handleRemoveImage = (index) => {
     setFormData({
       ...formData,
@@ -104,9 +106,6 @@ export default function AddProperty() {
 
     if (
       e.target.id === "parking" ||
-      e.target.id === "pool" ||
-      e.target.id === "temple" ||
-      e.target.id === "garden" ||
       e.target.id === "furnished" ||
       e.target.id === "offer"
     ) {
@@ -158,6 +157,7 @@ export default function AddProperty() {
       setLoading(false);
     }
   };
+
   return (
     <main className="p-3 max-w-4xl mx-auto">
       <h1 className="text-3xl font-semibold text-center my-7">Add Property</h1>
@@ -175,8 +175,7 @@ export default function AddProperty() {
             value={formData.name}
           />
           <textarea
-            type="text"
-            placeholder="Description-(Eg. Nearbly location, rail-distance, amenities, Muslims allowed or not , bachelors, Sq. feet )"
+            placeholder="Description-(Eg. Nearby location, rail-distance, amenities, Muslims allowed or not, bachelors, Sq. feet)"
             className="border p-3 rounded-lg"
             id="description"
             required
@@ -331,8 +330,10 @@ export default function AddProperty() {
                 value={formData.regularPrice}
               />
               <div className="flex flex-col items-center">
-                <p>Regular price</p>
-                <span className="text-xs">(₹ / month)</span>
+                <p>
+                  Regular price{" "}
+                  {formData.type === "rent" && "($ / month)"}
+                </p>
               </div>
             </div>
             {formData.offer && (
@@ -348,8 +349,10 @@ export default function AddProperty() {
                   value={formData.discountPrice}
                 />
                 <div className="flex flex-col items-center">
-                  <p>Discounted price</p>
-                  <span className="text-xs">(₹ / month)</span>
+                  <p>
+                    Discounted price{" "}
+                    {formData.type === "rent" && "($ / month)"}
+                  </p>
                 </div>
               </div>
             )}
