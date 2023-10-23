@@ -38,7 +38,7 @@ export default function Footer() {
         </div>
       </div>
       
-      <hr className="my-6 border-gray-200 md:my-8 dark:border-gray-700 h-2" />
+      <hr className="my-6 border-gray-500 md:my-8 dark:border-gray-700 h-2" />
       
       <div className="sm:flex sm:items-center sm:justify-between">
         <div className="flex flex-1 gap-4 hover:cursor-pointer">

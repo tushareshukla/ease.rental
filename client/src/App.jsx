@@ -8,6 +8,7 @@ import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import AddProperty from "./pages/AddProperty";
 import Footer from "./components/Footer";
+import UpdateProperty from "./pages/UpdateProperty";
 
 export default function App() {
   return (
@@ -21,6 +22,8 @@ export default function App() {
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />
           <Route path='/add-property' element={<AddProperty/>}/>
+          <Route path='/update-property/:listingId'
+          element={<UpdateProperty/>}/>
         </Route>
       </Routes>
       <Footer/>

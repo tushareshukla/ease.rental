@@ -50,8 +50,8 @@ export default function SignIn() {
         <Link to="/">
           <h1 className="font-bold  text-center text-2xl sm:text-xl flex flex-wrap mb-3 ml-2">
             <span className="mr-2">LOGIN TO</span>
-            <span className="text-red-600">EASE</span>
-            <span className="text-gray-600">.RENTALS</span>
+            <span className="text-blue-500">EASE</span>
+            <span className="text-gray-800">.RENTALS</span>
           </h1>
         </Link>
 
@@ -82,7 +82,7 @@ export default function SignIn() {
           <OAuth />
         </form>
         <div className="flex justify-between mt-5">
-          <Link to="/sign-up" className="text-blue-700 hover:underline">
+          <Link to="/sign-up" className="text-red-700 hover:underline">
             Create an account
           </Link>
         </div>

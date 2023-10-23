@@ -20,7 +20,7 @@ export default function Header() {
       <div className="flex justify-between items-center max-w-6xl mx-auto p-3">
         <Link to="/">
           <h1 className="font-bold text-sm sm:text-xl flex flex-wrap">
-            <span className="text-red-500">EASE</span>
+            <span className="text-blue-500">EASE</span>
             <span className="text-white">.RENTALS</span>
           </h1>
         </Link>
@@ -33,7 +33,7 @@ export default function Header() {
                 alt="profile"
               />
             ) : (
-              <span className="text-white hover:text-red-500">Sign in</span>
+              <span className="text-white hover:text-blue-500">Sign in</span>
             )}
           </Link>
           <form className="bg-gray-100 p-3 rounded-lg flex items-center ml-4">
@@ -60,17 +60,17 @@ export default function Header() {
           </form>
           <ul className="flex gap-4">
             <Link to="/">
-              <li className="text-white hover:text-red-500 ml-4">Home</li>
+              <li className="text-white hover:text-blue-500 ml-4">Home</li>
             </Link>
             <Link to="/about">
-              <li className="text-white hover:text-red-500">About</li>
+              <li className="text-white hover:text-blue-500">About</li>
             </Link>
             <a
               href="https://www.ease.rentals"
               target="_blank"
               rel="noopener noreferrer"
             >
-              <li className="text-white hover:text-red-500">Manage Rents</li>
+              <li className="text-white hover:text-blue-500">Manage Rents</li>
             </a>
             {currentUser ? (
               <Link to="/profile">
@@ -82,7 +82,7 @@ export default function Header() {
               </Link>
             ) : (
               <Link to="/sign-in">
-                <li className="text-white hover:text-red-500">Sign in</li>
+                <li className="text-white hover:text-blue-500">Sign in</li>
               </Link>
             )}
           </ul>
