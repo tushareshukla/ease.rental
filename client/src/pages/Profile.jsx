@@ -217,44 +217,47 @@ export default function Profile() {
       <p className='text-red-700 mt-5'>{error ? error : ''}</p>
       <p className='text-green-700 mt-5'>
         {updateSuccess ? 'User is updated successfully!' : ''}
-      </p>
-      <button onClick={handleShowListings} className='text-green-700 w-full'>
+      </p> <button
+        onClick={handleShowListings}
+        className=" w-full bg-blue-900 hover:bg-blue-700 text-white font-semibold py-2 px-4 rounded-lg transition duration-300"
+      >
         Show Listings
       </button>
-      <p className='text-red-700 mt-5'>
-        {showListingsError ? 'Error showing listings' : ''}
+      <p className="text-red-700 mt-5">
+        {showListingsError ? "Error showing listings" : ""}
       </p>
-
-      {userListings &&
-        userListings.length > 0 &&
-        <div className="flex flex-col gap-4">
-          <h1 className='text-center mt-7 text-2xl font-semibold'>Your Listings</h1>
-          {userListings.map((listing) => (
-            <div
-              key={listing._id}
-              className='border rounded-lg p-3 flex justify-between items-center gap-4'
+      <div className="grid grid-cols-1 gap-4 mt-7">
+        {userListings.map((listing) => (
+          <div
+            key={listing._id}
+            className="border rounded-lg p-3 flex items-center gap-4 hover:shadow-md transition duration-300"
+          >
+            <Link to={`/listing/${listing._id}`}>
+              <img
+                src={listing.imageUrls[0]}
+                alt="listing cover"
+                className="h-16 w-16 object-cover rounded-md"
+              />
+            </Link>
+            <Link
+              className="text-slate-700 font-semibold hover:underline truncate flex-1"
+              to={`/listing/${listing._id}`}
             >
-              <Link to={`/listing/${listing._id}`}>
-                <img
-                  src={listing.imageUrls[0]}
-                  alt='listing cover'
-                  className='h-16 w-16 object-contain'
-                />
-              </Link>
-              <Link
-                className='text-slate-700 font-semibold  hover:underline truncate flex-1'
-                to={`/listing/${listing._id}`}
-              >
-                <p>{listing.name}</p>
-              </Link>
-
-              <div className='flex flex-col item-center'>
-                <button className='text-red-700 uppercase'>Delete</button>
-                <button className='text-green-700 uppercase'>Edit</button>
-              </div>
+              <p>{listing.name}</p>
+            </Link>
+            <div className="space-x-2">
+              <button className="text-red-700 font-semibold hover:underline">
+                Delete
+              </button>
+              <button className="text-green-700 font-semibold hover:underline">
+                Edit
+              </button>
             </div>
-          ))}
-        </div>}
+          </div>
+        ))}
+      </div>
     </div>
   );
 }
+     
+  
