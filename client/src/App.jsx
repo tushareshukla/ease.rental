@@ -7,6 +7,7 @@ import Header from "./components/Header";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import PrivateRoute from "./components/PrivateRoute";
 import AddProperty from "./pages/AddProperty";
+import Footer from "./components/Footer";
 
 export default function App() {
   return (
@@ -22,6 +23,7 @@ export default function App() {
           <Route path='/add-property' element={<AddProperty/>}/>
         </Route>
       </Routes>
+      <Footer/>
     </BrowserRouter>
   );
 }

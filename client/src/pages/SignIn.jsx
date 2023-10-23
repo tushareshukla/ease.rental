@@ -49,7 +49,7 @@ export default function SignIn() {
       <div className="p-5 max-w-md mx-auto bg-white bg-opacity-80 rounded-lg shadow-lg">
         <Link to="/">
           <h1 className="font-bold  text-center text-2xl sm:text-xl flex flex-wrap mb-3 ml-2">
-            <span className="mr-2">Login to</span>
+            <span className="mr-2">LOGIN TO</span>
             <span className="text-red-600">EASE</span>
             <span className="text-gray-600">.RENTALS</span>
           </h1>
