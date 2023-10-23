@@ -45,38 +45,51 @@ export default function SignIn() {
   };
 
   return (
-    <div className="p-3 max-w-lg mx-auto">
-      <h1 className="text-3xl text-center  font-semibold my-7">LOGIN</h1>
-      <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-        <input
-          type="email"
-          placeholder="Email: johndoe@email.com"
-          className="border p-3 rounded-lg"
-          id="email"
-          onChange={handleChange}
-        />
-        <input
-          type="password"
-          placeholder="password"
-          className="border p-3 rounded-lg"
-          id="password"
-          onChange={handleChange}
-        />
-        <button
-          disabled={loading}
-          className="bg-gray-800 text-white p-3 rounded-lg uppercase hover:opacity-90 disabled:opacity-80"
-        >
-          {loading ? "loading.." : "LOGIN"}
-        </button>
-        <OAuth />
-      </form>
-      <div className="flex gap-2 mt-5 ">
-        <p>Dont have an account?</p>
-        <Link to={"/sign-up"}>
-          <span className="text-blue-700">Sign Up</span>
+    <div className="bg-login-bg bg-cover min-h-screen flex items-center justify-center">
+      <div className="p-5 max-w-md mx-auto bg-white bg-opacity-80 rounded-lg shadow-lg">
+        <Link to="/">
+          <h1 className="font-bold  text-center text-2xl sm:text-xl flex flex-wrap mb-3 ml-2">
+            <span className="mr-2">Login to</span>
+            <span className="text-red-600">EASE</span>
+            <span className="text-gray-600">.RENTALS</span>
+          </h1>
         </Link>
+
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          <input
+            type="email"
+            placeholder="Email"
+            className="border p-3 rounded-lg focus:outline-none"
+            id="email"
+            onChange={handleChange}
+          />
+          <input
+            type="password"
+            placeholder="Password"
+            className="border p-3 rounded-lg focus:outline-none"
+            id="password"
+            onChange={handleChange}
+          />
+          <button
+            disabled={loading}
+            className="bg-gray-800 text-white p-3 rounded-lg uppercase hover:bg-gray-700 focus:outline-none"
+          >
+            {loading ? "Loading..." : "LOGIN"}
+          </button>
+          <div className="font-bold text-center">
+            <span>------- OR -------</span>
+          </div>
+          <OAuth />
+        </form>
+        <div className="flex justify-between mt-5">
+          <Link to="/sign-up" className="text-blue-700 hover:underline">
+            Create an account
+          </Link>
+        </div>
+        {error && (
+          <p className="text-red-500 mt-5 text-center font-semibold">{error}</p>
+        )}
       </div>
-      {error && <p className="text-red-500 mt-5">{error}</p>}
     </div>
   );
 }

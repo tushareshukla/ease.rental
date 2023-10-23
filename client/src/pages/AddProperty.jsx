@@ -36,6 +36,7 @@ export default function AddProperty() {
   const [uploading, setUploading] = useState(false);
   const [error, setError] = useState(false);
   const [loading, setLoading] = useState(false);
+  console.log(formData);
 
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
@@ -106,6 +107,9 @@ export default function AddProperty() {
 
     if (
       e.target.id === "parking" ||
+      e.target.id === "pool" ||
+      e.target.id === "temple" ||
+      e.target.id === "garden" ||
       e.target.id === "furnished" ||
       e.target.id === "offer"
     ) {
@@ -330,10 +334,7 @@ export default function AddProperty() {
                 value={formData.regularPrice}
               />
               <div className="flex flex-col items-center">
-                <p>
-                  Regular price{" "}
-                  {formData.type === "rent" && "($ / month)"}
-                </p>
+                <p>Regular price {formData.type === "rent" && "(₹ / month)"}</p>
               </div>
             </div>
             {formData.offer && (
@@ -350,8 +351,7 @@ export default function AddProperty() {
                 />
                 <div className="flex flex-col items-center">
                   <p>
-                    Discounted price{" "}
-                    {formData.type === "rent" && "($ / month)"}
+                    Discounted price {formData.type === "rent" && "(₹ / month)"}
                   </p>
                 </div>
               </div>
@@ -410,7 +410,7 @@ export default function AddProperty() {
             disabled={loading || uploading}
             className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
-            {loading ? "Adding Listing..." : "ADD listing"}
+            {loading ? "Adding Property..." : "ADD listing"}
           </button>
           {error && <p className="text-red-700 text-sm">{error}</p>}
         </div>

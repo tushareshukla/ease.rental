@@ -32,11 +32,12 @@ export default function OAuth() {
   };
   return (
     <button
-      onClick={handleGoogleClick}
-      type="button"
-      className="bg-red-700 text-white p-3 rounded-lg uppercase"
-    >
-      Contiue with google
-    </button>
+  onClick={handleGoogleClick}
+  type="button"
+  className="bg-red-700 hover:bg-red-600 focus:ring focus:ring-red-300 text-white p-3 rounded-lg uppercase shadow-md transition duration-300"
+>
+  Continue with Google
+</button>
+
   );
 }

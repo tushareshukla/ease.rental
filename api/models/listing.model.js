@@ -38,6 +38,18 @@ const listingSchema = new mongoose.Schema(
       type: Boolean,
       required: true,
     },
+    pool: {
+      type: Boolean,
+      required: true,
+    },
+    temple: {
+      type: Boolean,
+      required: true,
+    },
+    garden: {
+      type: Boolean,
+      required: true,
+    },
     type: {
       type: String,
       required: true,
