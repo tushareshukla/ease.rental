@@ -10,6 +10,7 @@ import AddProperty from "./pages/AddProperty";
 import Footer from "./components/Footer";
 import UpdateProperty from "./pages/UpdateProperty";
 import Properties from "./pages/Properties";
+import Search from "./pages/Search";
 
 export default function App() {
   return (
@@ -20,6 +21,7 @@ export default function App() {
         <Route path="/sign-in" element={<SignIn />} />
         <Route path="/sign-up" element={<SignUp />} />
         <Route path="/about" element={<About />} />
+        <Route path="/search" element={<Search/>}/>
         <Route path="/listing/:listingId" element={<Properties />} />
         <Route element={<PrivateRoute />}>
           <Route path="/profile" element={<Profile />} />

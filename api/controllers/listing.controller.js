@@ -83,6 +83,21 @@ export const getListings = async (req, res, next) => {
     if (parking === undefined || parking === 'false') {
       parking = { $in: [false, true] };
     }
+    let garden = req.query.garden;
+
+    if (garden === undefined || garden === 'false') {
+      garden = { $in: [false, true] };
+    }
+    let temple = req.query.temple;
+
+    if (temple === undefined || temple === 'false') {
+      temple = { $in: [false, true] };
+    }
+    let pool = req.query.pool;
+
+    if (pool === undefined || pool === 'false') {
+      pool = { $in: [false, true] };
+    }
 
     let type = req.query.type;
 
@@ -101,6 +116,9 @@ export const getListings = async (req, res, next) => {
       offer,
       furnished,
       parking,
+      pool,
+      temple,
+      garden,
       type,
     })
       .sort({ [sort]: order })
