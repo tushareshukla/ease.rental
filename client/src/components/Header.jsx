@@ -120,7 +120,10 @@ export default function Header() {
         </div>
       </div>
       {showSidebar && (
-        <div className="bg-gray-800 text-white w-48 fixed top-0 right-0 h-full transition-transform transform translate-x-0 shadow-md">
+        <div
+          className="bg-gray-800 text-white w-48 fixed top-0 right-0 h-full transition-transform transform trangray-x-0 shadow-md"
+          style={{ zIndex: 999 }} // Set a higher z-index value here
+        >
           <div className="p-6 space-y-4">
             <div className="flex justify-between items-center">
               <h2></h2>

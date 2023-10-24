@@ -423,7 +423,7 @@ export default function UpdateProperty() {
             ))}
           <button
             disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            className="p-3 bg-gray-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
             {loading ? " Updating..." : "UPDATE PROPERTY"}
           </button>

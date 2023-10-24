@@ -179,7 +179,7 @@ export default function AddProperty() {
             value={formData.name}
           />
           <textarea
-          type ='text'
+            type="text"
             placeholder="Description-(Eg. Nearby location, rail-distance, amenities, Muslims allowed or not, bachelors, Sq. feet)"
             className="border p-3 rounded-lg"
             id="description"
@@ -409,7 +409,7 @@ export default function AddProperty() {
             ))}
           <button
             disabled={loading || uploading}
-            className="p-3 bg-slate-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
+            className="p-3 bg-gray-700 text-white rounded-lg uppercase hover:opacity-95 disabled:opacity-80"
           >
             {loading ? "Adding Property..." : "ADD listing"}
           </button>
