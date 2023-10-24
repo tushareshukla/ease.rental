@@ -49,7 +49,7 @@ export default function UpdateProperty() {
       setFormData(data);
     };
     fetchListing();
-  });
+  }, []);
 
   const handleImageSubmit = (e) => {
     if (files.length > 0 && files.length + formData.imageUrls.length < 7) {
@@ -322,7 +322,7 @@ export default function UpdateProperty() {
                 onChange={handleChange}
                 value={formData.bedrooms}
               />
-              <p>Beds</p>
+              <p>Bedroom</p>
             </div>
             <div className="flex items-center gap-2">
               <input
@@ -335,7 +335,7 @@ export default function UpdateProperty() {
                 onChange={handleChange}
                 value={formData.bathrooms}
               />
-              <p>Baths</p>
+              <p>Bathroom</p>
             </div>
             <div className="flex items-center gap-2">
               <input
