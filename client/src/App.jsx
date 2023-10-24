@@ -1,4 +1,4 @@
-import SignUp from "./pages/Signup";
+import SignUp from "./pages/SignUp";
 import SignIn from "./pages/SignIn";
 import About from "./pages/About";
 import Profile from "./pages/Profile";
